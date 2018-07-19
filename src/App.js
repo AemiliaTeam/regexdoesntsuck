@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import Pattern from './components/Pattern';
-import Flags from './components/Flags';
+import FormContainer from './components/FormContainer';
 import StringList from './components/StringList';
 
 import './App.css';
@@ -121,8 +120,11 @@ class App extends Component {
     return (
       <div>
         <Header title="Regex Lab"/>
-        <Pattern onPatternUpdate={this.onPatternUpdate}/>
-        <Flags onFlagUpdate={this.onFlagUpdate}/>
+        <FormContainer
+          onPatternUpdate={this.onPatternUpdate}
+          onFlagUpdate={this.onFlagUpdate}
+        />
+        {/* Next line is a test display, need to put this into its own component */}
         <h2>{ !this.state.error ? `${this.state.regex}` : 'Invalid Regular Expression' }</h2>
         <StringList items={this.state.strings} pattern={this.state.pattern}/>
       </div>
