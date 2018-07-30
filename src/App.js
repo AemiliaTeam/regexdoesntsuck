@@ -137,6 +137,7 @@ class App extends Component {
     this.setState({
       strings: newStrings
     });
+    event.target.elements.string.value = '';
   };
 
   onRemoveString = (event, stringToRemove) => {
