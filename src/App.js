@@ -5,7 +5,7 @@ import StringList from './components/StringList';
 import AddString from './components/AddString';
 import DisplayRegex from './components/DisplayRegex';
 
-import './App.css';
+import './styles/main.css';
 
 // To load the sample data for testing, change state.strings to this value
 import strings from './config';
