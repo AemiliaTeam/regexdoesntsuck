@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import FormContainer from './components/FormContainer';
 import StringList from './components/StringList';
+import NewString from './components/NewString';
 
 import './App.css';
 
@@ -21,18 +22,32 @@ class App extends Component {
     this.state = {
       pattern: '',
       flags: [],
-      strings: initStrings,
+      strings: [], // For testing, make this initStrings instead of empty array
       error: false,
       regex: ''
     };
 
+    this.checkOneMatch = this.checkOneMatch.bind(this);
     this.checkMatches = this.checkMatches.bind(this);
     this.onPatternUpdate = this.onPatternUpdate.bind(this);
     this.onFlagUpdate = this.onFlagUpdate.bind(this);
+    this.onAddString = this.onAddString.bind(this);
   }
 
   componentDidMount() {
     this.checkMatches(this.state.pattern, this.state.flags);
+  }
+
+  checkOneMatch(string, regex) {
+    if (regex) {
+      return regex.test(string);
+    } else {
+      this.setState(() => {
+        return {
+          error: true
+        };
+      });
+    }
   }
 
   checkMatches(pattern, flags) {
@@ -118,6 +133,22 @@ class App extends Component {
     }
   }
 
+  onAddString(event) {
+    event.preventDefault();
+
+    const text = event.target.elements.string.value;
+    const string = {
+      text,
+      match: this.checkOneMatch(text, this.state.regex)
+    };
+
+    const newStrings = this.state.strings.concat([string]);
+
+    this.setState({
+      strings: newStrings
+    });
+  }
+
   render() {
     return (
       <div>
@@ -133,6 +164,7 @@ class App extends Component {
             : 'Invalid Regular Expression'}
         </h2>
         <StringList items={this.state.strings} pattern={this.state.pattern} />
+        <NewString onAddString={this.onAddString} regex={this.state.regex} />
       </div>
     );
   }
