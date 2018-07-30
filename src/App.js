@@ -32,6 +32,7 @@ class App extends Component {
     this.onPatternUpdate = this.onPatternUpdate.bind(this);
     this.onFlagUpdate = this.onFlagUpdate.bind(this);
     this.onAddString = this.onAddString.bind(this);
+    this.onRemoveString = this.onRemoveString.bind(this);
   }
 
   componentDidMount() {
@@ -149,6 +150,16 @@ class App extends Component {
     });
   }
 
+  onRemoveString(event, stringToRemove) {
+    this.setState(prevState => {
+      return {
+        strings: prevState.strings.filter(string => {
+          return stringToRemove.toString() !== string.text;
+        })
+      };
+    });
+  }
+
   render() {
     return (
       <div>
@@ -163,7 +174,11 @@ class App extends Component {
             ? `${this.state.regex}`
             : 'Invalid Regular Expression'}
         </h2>
-        <StringList items={this.state.strings} pattern={this.state.pattern} />
+        <StringList
+          items={this.state.strings}
+          pattern={this.state.pattern}
+          onRemoveString={this.onRemoveString}
+        />
         <NewString onAddString={this.onAddString} regex={this.state.regex} />
       </div>
     );
