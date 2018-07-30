@@ -79,6 +79,12 @@ class App extends Component {
     }
   };
 
+  onClearStrings = event => {
+    this.setState({
+      strings: []
+    });
+  };
+
   onPatternUpdate = pattern => {
     this.setState(() => {
       return {
@@ -158,6 +164,7 @@ class App extends Component {
             ? `${this.state.regex}`
             : 'Invalid Regular Expression'}
         </h2>
+        <button onClick={this.onClearStrings}>Clear</button>
         <StringList
           items={this.state.strings}
           pattern={this.state.pattern}
