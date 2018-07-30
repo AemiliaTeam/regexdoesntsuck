@@ -2,9 +2,9 @@ import React from 'react';
 
 const AddString = props => {
   return (
-    <form onSubmit={props.onAddString}>
-      <input type="text" name="string" />
-      <button>Add</button>
+    <form className="AddString" onSubmit={props.onAddString}>
+      <input className="AddString__input" type="text" name="string" />
+      <button className="AddString__button">Add</button>
     </form>
   );
 };

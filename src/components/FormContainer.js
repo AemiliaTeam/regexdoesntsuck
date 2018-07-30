@@ -5,12 +5,10 @@ import Flags from './Flags';
 
 const FormContainer = props => {
   return (
-    <div>
-      <form>
-        <Pattern onPatternUpdate={props.onPatternUpdate} />
-        <Flags onFlagUpdate={props.onFlagUpdate} />
-      </form>
-    </div>
+    <form className="FormContainer">
+      <Pattern onPatternUpdate={props.onPatternUpdate} />
+      <Flags onFlagUpdate={props.onFlagUpdate} />
+    </form>
   );
 };
 

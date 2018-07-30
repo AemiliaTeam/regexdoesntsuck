@@ -4,7 +4,7 @@ import StringItem from './StringItem';
 const StringList = props => {
   const stringList = props.items.map((string, idx) => {
     return (
-      <li key={idx}>
+      <li className="StringList__item" key={idx}>
         <StringItem
           text={string.text}
           index={idx}
@@ -15,7 +15,7 @@ const StringList = props => {
     );
   });
 
-  return <ul>{stringList}</ul>;
+  return <ul className="StringList">{stringList}</ul>;
 };
 
 export default StringList;

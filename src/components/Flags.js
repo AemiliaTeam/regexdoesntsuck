@@ -2,10 +2,11 @@ import React from 'react';
 
 const Flags = props => {
   return (
-    <fieldset>
-      <legend>Flags:</legend>
+    <fieldset className="Flags">
+      <legend className="Flags__legend">Flags:</legend>
 
       <input
+        className="Flags__checkbox"
         type="checkbox"
         id="insensitive"
         name="flags"
@@ -17,9 +18,12 @@ const Flags = props => {
           })
         }
       />
-      <label htmlFor="insensitive">i</label>
+      <label className="Flags__label" htmlFor="insensitive">
+        i
+      </label>
 
       <input
+        className="Flags__checkbox"
         type="checkbox"
         id="global"
         name="flags"
@@ -31,9 +35,12 @@ const Flags = props => {
           })
         }
       />
-      <label htmlFor="global">g</label>
+      <label className="Flags__label" htmlFor="global">
+        g
+      </label>
 
       <input
+        className="Flags__checkbox"
         type="checkbox"
         id="multiline"
         name="flags"
@@ -45,9 +52,12 @@ const Flags = props => {
           })
         }
       />
-      <label htmlFor="multiline">m</label>
+      <label className="Flags__label" htmlFor="multiline">
+        m
+      </label>
 
       <input
+        className="Flags__checkbox"
         type="checkbox"
         id="unicode"
         name="flags"
@@ -59,9 +69,12 @@ const Flags = props => {
           })
         }
       />
-      <label htmlFor="unicode">u</label>
+      <label className="Flags__label" htmlFor="unicode">
+        u
+      </label>
 
       <input
+        className="Flags__checkbox"
         type="checkbox"
         id="sticky"
         name="flags"
@@ -73,7 +86,9 @@ const Flags = props => {
           })
         }
       />
-      <label htmlFor="sticky">y</label>
+      <label className="Flags__label" htmlFor="sticky">
+        y
+      </label>
     </fieldset>
   );
 };
