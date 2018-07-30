@@ -3,6 +3,7 @@ import Header from './components/Header';
 import FormContainer from './components/FormContainer';
 import StringList from './components/StringList';
 import AddString from './components/AddString';
+import DisplayRegex from './components/DisplayRegex';
 
 import './App.css';
 
@@ -15,7 +16,8 @@ class App extends Component {
     flags: [],
     strings: [],
     error: false,
-    regex: ''
+    regex: '',
+    allMatch: false
   };
 
   componentDidMount = () => {
@@ -47,16 +49,19 @@ class App extends Component {
     let regex;
     try {
       regex = new RegExp(`${pattern}`, flags.join(''));
+      let allMatches = [];
 
       const newStrings = this.state.strings.map(string => {
         if (regex && pattern.trim() !== '' && !this.state.error) {
           if (regex.test(string.text)) {
+            allMatches.push(true);
             return {
               text: string.text,
               match: true
             };
           }
         }
+        allMatches.push(false);
         return {
           text: string.text,
           match: false
@@ -67,7 +72,8 @@ class App extends Component {
         return {
           strings: newStrings,
           error: false,
-          regex: regex
+          regex: regex,
+          allMatch: !allMatches.includes(false)
         };
       });
     } catch (err) {
@@ -159,12 +165,12 @@ class App extends Component {
           onPatternUpdate={this.onPatternUpdate}
           onFlagUpdate={this.onFlagUpdate}
         />
-        {/* Next line is a test display, need to put this into its own component */}
-        <h2>
-          {!this.state.error
-            ? `${this.state.regex}`
-            : 'Invalid Regular Expression'}
-        </h2>
+        <DisplayRegex
+          error={this.state.error}
+          regex={this.state.regex}
+          allMatch={this.state.allMatch}
+        />
+
         <button onClick={this.onClearStrings}>Clear</button>
         <StringList
           items={this.state.strings}
