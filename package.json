@@ -1,6 +1,8 @@
 {
-  "name": "regex-lab",
+  "name": "regexdoesntsuck",
   "version": "0.1.0",
+  "author": "Phil Zona",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "immutability-helper": "^2.7.1",
