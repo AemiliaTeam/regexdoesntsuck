@@ -1,0 +1,10 @@
+.StringList {
+  list-style-type: none;
+
+  &__empty {
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+}

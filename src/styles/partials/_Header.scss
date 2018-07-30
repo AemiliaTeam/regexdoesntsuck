@@ -1,2 +1,11 @@
 .Header {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+
+  &__text {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+  }
 }

@@ -1,0 +1,28 @@
+.Flags {
+  flex: 1 1 50%;
+  border: none;
+
+  display: flex;
+  flex-direction: column;
+
+  &__legend {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    flex: 1 1 auto;
+  }
+
+  &__checkbox {
+    margin-right: 1rem;
+  }
+
+  &__label {
+    font-size: 1.4rem;
+  }
+}

@@ -14,8 +14,17 @@ const StringList = props => {
       </li>
     );
   });
+  const isEmpty = stringList.length > 0;
 
-  return <ul className="StringList">{stringList}</ul>;
+  return (
+    <div>
+      {isEmpty ? (
+        <ul className="StringList">{stringList}</ul>
+      ) : (
+        <p className="StringList__empty">Add a test to get started</p>
+      )}
+    </div>
+  );
 };
 
 export default StringList;

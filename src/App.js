@@ -4,17 +4,19 @@ import FormContainer from './components/FormContainer';
 import StringList from './components/StringList';
 import AddString from './components/AddString';
 import DisplayRegex from './components/DisplayRegex';
+import ClearStrings from './components/ClearStrings';
 
 import './styles/main.css';
 
 // To load the sample data for testing, change state.strings to this value
+// eslint-disable-next-line
 import strings from './config';
 
 class App extends Component {
   state = {
     pattern: '',
     flags: [],
-    strings: [],
+    strings: strings, //[],
     error: false,
     regex: '',
     allMatch: false
@@ -158,26 +160,32 @@ class App extends Component {
 
   render = () => {
     const title = `Regex Doesn't Suck`;
-    return (
-      <div>
-        <Header title={title} />
-        <FormContainer
-          onPatternUpdate={this.onPatternUpdate}
-          onFlagUpdate={this.onFlagUpdate}
-        />
-        <DisplayRegex
-          error={this.state.error}
-          regex={this.state.regex}
-          allMatch={this.state.allMatch}
-        />
 
-        <button onClick={this.onClearStrings}>Clear</button>
-        <StringList
-          items={this.state.strings}
-          pattern={this.state.pattern}
-          onRemoveString={this.onRemoveString}
-        />
-        <AddString onAddString={this.onAddString} regex={this.state.regex} />
+    return (
+      <div className="container">
+        <Header title={title} />
+
+        <div className="controls-container">
+          <FormContainer
+            onPatternUpdate={this.onPatternUpdate}
+            onFlagUpdate={this.onFlagUpdate}
+          />
+          <DisplayRegex
+            error={this.state.error}
+            regex={this.state.regex}
+            allMatch={this.state.allMatch}
+          />
+        </div>
+
+        <div className="strings-container">
+          <ClearStrings onClearStrings={this.onClearStrings} />
+          <StringList
+            items={this.state.strings}
+            pattern={this.state.pattern}
+            onRemoveString={this.onRemoveString}
+          />
+          <AddString onAddString={this.onAddString} regex={this.state.regex} />
+        </div>
       </div>
     );
   };

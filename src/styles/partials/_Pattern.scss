@@ -1,0 +1,17 @@
+.Pattern {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1 1 50%;
+  margin-right: 2rem;
+
+  &__label {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    padding: 0.4rem 1.2rem;
+    font-size: 2rem;
+  }
+}

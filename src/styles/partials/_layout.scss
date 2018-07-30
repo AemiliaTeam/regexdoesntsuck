@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  margin: 8rem auto;
+  width: 70%;
+  min-height: 80vh;
+
+  border: 2px solid #222;
+  box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+.controls-container {
+  padding: 2rem 0;
+  flex: 0 1 auto;
+  margin-bottom: 2rem;
+}
+
+.strings-container {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+
+  display: flex;
+  flex-direction: column;
+}

@@ -8,19 +8,19 @@ const DisplayRegex = props => {
       </h2>
 
       {props.allMatch ? (
-        <p
+        <span
           className="DisplayRegex__icon DisplayRegex__icon--yes"
           style={{ color: 'green' }}
         >
           &#x2714;
-        </p>
+        </span>
       ) : (
-        <p
+        <span
           className="DisplayRegex__icon DisplayRegex__icon--no"
           style={{ color: 'red' }}
         >
           &times;
-        </p>
+        </span>
       )}
     </div>
   );

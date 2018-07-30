@@ -10,11 +10,127 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
-  padding: 8rem; }
+  font-family: 'Lato', sans-serif; }
 
 .doesMatch {
   color: green; }
 
 .doesNotMatch {
   color: red; }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 6rem;
+  margin: 8rem auto;
+  width: 70%;
+  min-height: 80vh;
+  border: 2px solid #222;
+  box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.2); }
+
+.controls-container {
+  padding: 2rem 0;
+  flex: 0 1 auto;
+  margin-bottom: 2rem; }
+
+.strings-container {
+  padding: 2rem 0;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column; }
+
+.AddString {
+  display: flex; }
+  .AddString__input {
+    flex: 1 1 auto;
+    padding: 0.4rem 1.2rem;
+    font-size: 2rem; }
+  .AddString__button {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    width: 6rem; }
+
+.ClearStrings {
+  padding: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem; }
+
+.DisplayRegex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+  .DisplayRegex__title {
+    margin-right: 2rem;
+    font-size: 3rem;
+    font-family: 'Source Code Pro', monospace; }
+  .DisplayRegex__icon {
+    font-size: 2rem; }
+
+.Flags {
+  flex: 1 1 50%;
+  border: none;
+  display: flex;
+  flex-direction: column; }
+  .Flags__legend {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .Flags__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1 1 auto; }
+  .Flags__checkbox {
+    margin-right: 1rem; }
+  .Flags__label {
+    font-size: 1.4rem; }
+
+.FormContainer {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem; }
+
+.Header {
+  margin-bottom: 2rem;
+  padding: 1rem 0; }
+  .Header__text {
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center; }
+
+.Pattern {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
+  margin-right: 2rem; }
+  .Pattern__label {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .Pattern__input {
+    padding: 0.4rem 1.2rem;
+    font-size: 2rem; }
+
+.StringItem {
+  display: flex;
+  margin-bottom: 1rem; }
+  .StringItem__text {
+    flex: 1 1 auto;
+    padding: 0.4rem 1.2rem;
+    font-size: 2rem; }
+  .StringItem__button {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    width: 6rem; }
+
+.StringList {
+  list-style-type: none; }
+  .StringList__empty {
+    font-size: 1.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem; }

@@ -4,9 +4,9 @@ const StringItem = props => {
   return (
     <div className="StringItem">
       <p
-        className={
-          'StringItem__text' + props.match ? 'doesMatch' : 'doesNotMatch'
-        }
+        className={`StringItem__text ${
+          props.match ? 'doesMatch' : 'doesNotMatch'
+        }`}
       >
         {props.text}
       </p>

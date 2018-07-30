@@ -1,0 +1,17 @@
+.DisplayRegex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  &__title {
+    margin-right: 2rem;
+    font-size: 3rem;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  &__icon {
+    font-size: 2rem;
+  }
+}
