@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import FormContainer from './components/FormContainer';
 import StringList from './components/StringList';
-import NewString from './components/NewString';
+import AddString from './components/AddString';
 
 import './App.css';
 
@@ -170,7 +170,7 @@ class App extends Component {
           pattern={this.state.pattern}
           onRemoveString={this.onRemoveString}
         />
-        <NewString onAddString={this.onAddString} regex={this.state.regex} />
+        <AddString onAddString={this.onAddString} regex={this.state.regex} />
       </div>
     );
   };

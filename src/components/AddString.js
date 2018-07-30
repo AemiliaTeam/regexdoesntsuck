@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NewString = props => {
+const AddString = props => {
   return (
     <form onSubmit={props.onAddString}>
       <input type="text" name="string" />
@@ -9,4 +9,4 @@ const NewString = props => {
   );
 };
 
-export default NewString;
+export default AddString;
