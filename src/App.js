@@ -6,40 +6,23 @@ import NewString from './components/NewString';
 
 import './App.css';
 
-// Sample data
+// To load the sample data for testing, change state.strings to this value
 import strings from './config';
-const initStrings = strings.map(string => {
-  return {
-    text: string,
-    match: false
-  };
-});
-// To load the sample data for testing, change state.strings within the App constructor to initStrings
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pattern: '',
-      flags: [],
-      strings: [], // For testing, make this initStrings instead of empty array
-      error: false,
-      regex: ''
-    };
+  state = {
+    pattern: '',
+    flags: [],
+    strings: [],
+    error: false,
+    regex: ''
+  };
 
-    this.checkOneMatch = this.checkOneMatch.bind(this);
-    this.checkMatches = this.checkMatches.bind(this);
-    this.onPatternUpdate = this.onPatternUpdate.bind(this);
-    this.onFlagUpdate = this.onFlagUpdate.bind(this);
-    this.onAddString = this.onAddString.bind(this);
-    this.onRemoveString = this.onRemoveString.bind(this);
-  }
-
-  componentDidMount() {
+  componentDidMount = () => {
     this.checkMatches(this.state.pattern, this.state.flags);
-  }
+  };
 
-  checkOneMatch(string, regex) {
+  checkOneMatch = (string, regex) => {
     if (regex) {
       return regex.test(string);
     } else {
@@ -49,9 +32,9 @@ class App extends Component {
         };
       });
     }
-  }
+  };
 
-  checkMatches(pattern, flags) {
+  checkMatches = (pattern, flags) => {
     if (pattern.trim() === '' || !flags) {
       this.setState(() => {
         return {
@@ -94,18 +77,18 @@ class App extends Component {
         };
       });
     }
-  }
+  };
 
-  onPatternUpdate(pattern) {
+  onPatternUpdate = pattern => {
     this.setState(() => {
       return {
         pattern
       };
     });
     this.checkMatches(pattern, this.state.flags);
-  }
+  };
 
-  onFlagUpdate(flag) {
+  onFlagUpdate = flag => {
     if (!this.state.flags) {
       const onlyFlag = [flag];
       this.setState(() => {
@@ -132,9 +115,9 @@ class App extends Component {
       });
       this.checkMatches(this.state.pattern, newFlags);
     }
-  }
+  };
 
-  onAddString(event) {
+  onAddString = event => {
     event.preventDefault();
 
     const text = event.target.elements.string.value;
@@ -148,9 +131,9 @@ class App extends Component {
     this.setState({
       strings: newStrings
     });
-  }
+  };
 
-  onRemoveString(event, stringToRemove) {
+  onRemoveString = (event, stringToRemove) => {
     this.setState(prevState => {
       return {
         strings: prevState.strings.filter(string => {
@@ -158,12 +141,13 @@ class App extends Component {
         })
       };
     });
-  }
+  };
 
-  render() {
+  render = () => {
+    const title = `Regex Doesn't Suck`;
     return (
       <div>
-        <Header title="Regex Lab" />
+        <Header title={title} />
         <FormContainer
           onPatternUpdate={this.onPatternUpdate}
           onFlagUpdate={this.onFlagUpdate}
@@ -182,7 +166,7 @@ class App extends Component {
         <NewString onAddString={this.onAddString} regex={this.state.regex} />
       </div>
     );
-  }
+  };
 }
 
 export default App;
