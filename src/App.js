@@ -181,6 +181,12 @@ class App extends Component {
     );
   };
 
+  onClearError = () => {
+    this.setState({
+      error: null
+    });
+  };
+
   render = () => {
     const title = `Regex Doesn't Suck`;
 
@@ -210,7 +216,10 @@ class App extends Component {
           {/* TODO - create a better error handling scheme */}
           {this.state.error &&
             this.state.error !== 'Invalid regular expression' && (
-              <ErrorMessage errorMessage={this.state.error} />
+              <ErrorMessage
+                errorMessage={this.state.error}
+                onClearError={this.onClearError}
+              />
             )}
           <AddString onAddString={this.onAddString} regex={this.state.regex} />
         </div>

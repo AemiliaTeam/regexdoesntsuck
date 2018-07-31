@@ -10,6 +10,10 @@
   &__icon {
     font-size: 3.2rem;
     flex: 0 1 15%;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &__text {
