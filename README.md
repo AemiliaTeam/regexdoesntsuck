@@ -2,7 +2,9 @@
 
 ...at least not once you get used to it.
 
-<img align="center" src="https://raw.githubusercontent.com/pbzona/regexdoesntsuck/master/regexdoesntsuck.png" alt="Regex Doesn't Suck">
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pbzona/regexdoesntsuck/master/regexdoesntsuck.png" alt="Regex Doesn't Suck"/>
+</p>
 
 This project is a quick regex validator that allows you to test one regular expression against multiple different test strings. For example, if you have a set of values you know you'll be using in your code, you can try out different expressions to find one that matches all of them. You provide various test cases and the application tells you whether your pattern matches some, or all, of them.
 
