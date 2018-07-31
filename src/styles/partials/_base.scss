@@ -34,6 +34,6 @@ body {
 
   @include respond(tablet) {
     background-image: none;
-    background-color: $color-blue-medium;
+    background-color: lighten($color-blue-dark, 3%);
   }
 }

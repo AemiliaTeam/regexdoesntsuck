@@ -17,6 +17,10 @@
   @include respond(phone) {
     width: 100%;
     margin: 0rem auto;
+    border-top: 16px solid $color-blue-dark;
+    border-bottom: 16px solid $color-blue-dark;
+    border-left: 12px solid $color-blue-dark;
+    border-right: 12px solid $color-blue-dark;
   }
 }
 
