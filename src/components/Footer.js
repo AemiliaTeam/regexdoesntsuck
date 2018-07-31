@@ -8,6 +8,8 @@ const Footer = props => {
         <a
           className="Footer__link"
           href="https://github.com/pbzona/regexdoesntsuck"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           View on Github
         </a>
