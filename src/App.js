@@ -134,21 +134,28 @@ class App extends Component {
     event.preventDefault();
 
     const text = event.target.elements.string.value;
-    const string = {
-      text,
-      match: this.checkOneMatch(text, this.state.regex)
-    };
+    const existingStrings = this.state.strings.map(string => string.text);
 
-    const newStrings = this.state.strings.concat([string]);
+    if (!existingStrings.includes(text) && text.trim() !== '') {
+      const newString = {
+        text,
+        match: this.checkOneMatch(text, this.state.regex)
+      };
 
-    this.setState({
-      strings: newStrings
-    });
+      const newStrings = this.state.strings.concat([newString]);
+
+      this.setState(
+        () => {
+          return {
+            strings: newStrings
+          };
+        },
+        () => this.checkMatches(this.state.pattern, this.state.flags)
+      );
+    }
 
     event.target.elements.string.value = '';
-    this.checkMatches(this.state.pattern, this.state.flags);
-
-    // TODO check to make sure new item not already in strings list before adding
+    // TODO add better error handling - display messages if an item is not added
   };
 
   onRemoveString = (event, stringToRemove) => {
