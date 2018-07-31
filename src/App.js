@@ -159,13 +159,16 @@ class App extends Component {
   };
 
   onRemoveString = (event, stringToRemove) => {
-    this.setState(prevState => {
-      return {
-        strings: prevState.strings.filter(string => {
-          return stringToRemove.toString() !== string.text;
-        })
-      };
-    });
+    this.setState(
+      prevState => {
+        return {
+          strings: prevState.strings.filter(string => {
+            return stringToRemove.toString() !== string.text;
+          })
+        };
+      },
+      () => this.checkMatches(this.state.pattern, this.state.flags)
+    );
   };
 
   render = () => {
