@@ -144,9 +144,10 @@ class App extends Component {
     this.setState({
       strings: newStrings
     });
-    event.target.elements.string.value = '';
 
-    // TODO add match checks after list manipulation - here and elsewhere
+    event.target.elements.string.value = '';
+    this.checkMatches(this.state.pattern, this.state.flags);
+
     // TODO check to make sure new item not already in strings list before adding
   };
 
