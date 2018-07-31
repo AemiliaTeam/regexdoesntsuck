@@ -185,6 +185,21 @@ body {
     .DisplayRegex__icon--no {
       background-color: #fa305b; }
 
+.ErrorMessage {
+  display: flex;
+  align-items: center;
+  background-color: #fa305b;
+  margin: 0rem 4rem 2rem;
+  padding: 2rem 6rem;
+  color: #fff;
+  font-size: 2rem; }
+  .ErrorMessage__icon {
+    font-size: 3.2rem;
+    flex: 0 1 15%; }
+  .ErrorMessage__text {
+    flex: 1 1 auto;
+    text-align: left; }
+
 .Flags {
   flex: 1 1 50%;
   border: none;

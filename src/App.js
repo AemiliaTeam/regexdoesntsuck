@@ -6,6 +6,7 @@ import AddString from './components/AddString';
 import DisplayRegex from './components/DisplayRegex';
 import ClearStrings from './components/ClearStrings';
 import Footer from './components/Footer';
+import ErrorMessage from './components/ErrorMessage';
 
 import './styles/main.css';
 
@@ -17,13 +18,13 @@ class App extends Component {
     pattern: '',
     flags: [],
     strings: strings,
-    error: false,
+    error: 'Test error',
     regex: '',
     allMatch: false
   };
 
   componentDidMount = () => {
-    this.checkMatches(this.state.pattern, this.state.flags);
+    //this.checkMatches(this.state.pattern, this.state.flags);
   };
 
   checkOneMatch = (string, regex) => {
@@ -32,7 +33,7 @@ class App extends Component {
     } else {
       this.setState(() => {
         return {
-          error: true
+          error: 'Invalid regular expression'
         };
       });
     }
@@ -42,7 +43,7 @@ class App extends Component {
     if (pattern.trim() === '' || !flags) {
       this.setState(() => {
         return {
-          error: false,
+          error: null,
           regex: ''
         };
       });
@@ -73,7 +74,7 @@ class App extends Component {
       this.setState(() => {
         return {
           strings: newStrings,
-          error: false,
+          error: null,
           regex: regex,
           allMatch: !allMatches.includes(false)
         };
@@ -81,7 +82,7 @@ class App extends Component {
     } catch (err) {
       this.setState(() => {
         return {
-          error: true
+          error: 'Invalid regular expression'
         };
       });
     }
@@ -137,7 +138,15 @@ class App extends Component {
     const text = event.target.elements.string.value;
     const existingStrings = this.state.strings.map(string => string.text);
 
-    if (!existingStrings.includes(text) && text.trim() !== '') {
+    if (existingStrings.includes(text)) {
+      this.setState({
+        error: 'All test cases must be unique'
+      });
+    } else if (text === '') {
+      this.setState({
+        error: 'Each test case must contain at least one character'
+      });
+    } else {
       const newString = {
         text,
         match: this.checkOneMatch(text, this.state.regex)
@@ -148,7 +157,8 @@ class App extends Component {
       this.setState(
         () => {
           return {
-            strings: newStrings
+            strings: newStrings,
+            error: null
           };
         },
         () => this.checkMatches(this.state.pattern, this.state.flags)
@@ -156,7 +166,6 @@ class App extends Component {
     }
 
     event.target.elements.string.value = '';
-    // TODO add better error handling - display messages if an item is not added
   };
 
   onRemoveString = (event, stringToRemove) => {
@@ -185,7 +194,7 @@ class App extends Component {
             onFlagUpdate={this.onFlagUpdate}
           />
           <DisplayRegex
-            error={this.state.error}
+            error={this.state.error === 'Invalid regular expression'}
             regex={this.state.regex}
             allMatch={this.state.allMatch}
           />
@@ -198,6 +207,11 @@ class App extends Component {
             pattern={this.state.pattern}
             onRemoveString={this.onRemoveString}
           />
+          {/* TODO - create a better error handling scheme */}
+          {this.state.error &&
+            this.state.error !== 'Invalid regular expression' && (
+              <ErrorMessage errorMessage={this.state.error} />
+            )}
           <AddString onAddString={this.onAddString} regex={this.state.regex} />
         </div>
         <Footer date={new Date().getFullYear()} />
