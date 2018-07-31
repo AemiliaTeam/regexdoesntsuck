@@ -5,6 +5,7 @@ import StringList from './components/StringList';
 import AddString from './components/AddString';
 import DisplayRegex from './components/DisplayRegex';
 import ClearStrings from './components/ClearStrings';
+import Footer from './components/Footer';
 
 import './styles/main.css';
 
@@ -199,6 +200,7 @@ class App extends Component {
           />
           <AddString onAddString={this.onAddString} regex={this.state.regex} />
         </div>
+        <Footer date={new Date().getFullYear()} />
       </div>
     );
   };

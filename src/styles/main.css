@@ -59,7 +59,7 @@ body {
 
 .AddString {
   display: flex;
-  margin: 0 2rem; }
+  margin: 0 2rem 2rem; }
   .AddString__input {
     flex: 1 1 auto;
     padding: 0.4rem 1.2rem;
@@ -237,6 +237,14 @@ body {
     color: #444;
     font-size: 1.8rem;
     margin-left: 1rem; }
+
+.Footer {
+  text-align: center; }
+  .Footer__text {
+    font-size: 1.4rem;
+    text-transform: uppercase; }
+  .Footer__link, .Footer__link:visited, .Footer__link:active {
+    color: #5151e5; }
 
 .FormContainer {
   display: flex;

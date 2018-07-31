@@ -1,0 +1,14 @@
+.Footer {
+  text-align: center;
+
+  &__text {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+
+  &__link,
+  &__link:visited,
+  &__link:active {
+    color: $color-blue-dark;
+  }
+}
