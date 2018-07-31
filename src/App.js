@@ -18,13 +18,13 @@ class App extends Component {
     pattern: '',
     flags: [],
     strings: strings,
-    error: 'Test error',
+    error: null,
     regex: '',
     allMatch: false
   };
 
   componentDidMount = () => {
-    //this.checkMatches(this.state.pattern, this.state.flags);
+    this.checkMatches(this.state.pattern, this.state.flags);
   };
 
   checkOneMatch = (string, regex) => {
