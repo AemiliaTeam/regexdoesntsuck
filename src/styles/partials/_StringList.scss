@@ -1,10 +1,17 @@
 .StringList {
   list-style-type: none;
+  margin: 0 2rem 4rem;
 
   &__empty {
     font-size: 1.8rem;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin: 5rem 0 6rem;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      border-bottom: 2px solid lighten($color-blue-dark, 24%);
+    }
   }
 }

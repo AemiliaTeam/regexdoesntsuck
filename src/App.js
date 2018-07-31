@@ -9,14 +9,13 @@ import ClearStrings from './components/ClearStrings';
 import './styles/main.css';
 
 // To load the sample data for testing, change state.strings to this value
-// eslint-disable-next-line
 import strings from './config';
 
 class App extends Component {
   state = {
     pattern: '',
     flags: [],
-    strings: strings, //[],
+    strings: strings,
     error: false,
     regex: '',
     allMatch: false
@@ -146,6 +145,9 @@ class App extends Component {
       strings: newStrings
     });
     event.target.elements.string.value = '';
+
+    // TODO add match checks after list manipulation - here and elsewhere
+    // TODO check to make sure new item not already in strings list before adding
   };
 
   onRemoveString = (event, stringToRemove) => {

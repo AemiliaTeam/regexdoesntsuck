@@ -1,16 +1,40 @@
 .AddString {
   display: flex;
+  margin: 0 2rem;
 
   &__input {
     flex: 1 1 auto;
     padding: 0.4rem 1.2rem;
     font-size: 2rem;
+    margin-right: 2rem;
+    border: none;
+    border-bottom: 2px solid lighten($color-blue-dark, 24%);
+    transition: 0.3s ease all;
+    font-family: 'Lato', sans-serif;
+    color: $color-black;
+
+    &::placeholder {
+      color: lighten($color-blue-dark, 24%);
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+      border-bottom: 2px solid $color-blue-dark;
+    }
   }
 
   &__button {
     padding: 1rem;
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
     width: 6rem;
+    border: none;
+    color: $color-white;
+
+    background-color: $color-blue-medium;
+    @include buttonEffect;
   }
 }

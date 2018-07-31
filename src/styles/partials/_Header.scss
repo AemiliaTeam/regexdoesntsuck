@@ -3,9 +3,10 @@
   padding: 1rem 0;
 
   &__text {
-    font-size: 4rem;
+    font-size: 4.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
+    color: $color-blue-medium;
   }
 }

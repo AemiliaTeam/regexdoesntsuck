@@ -1,0 +1,45 @@
+// COLORS
+
+$color-blue-dark: #5151e5;
+// $color-blue-medium: #3c8ce7;
+$color-blue-medium: #4e97e9;
+$color-blue-light: #72edf2;
+
+$color-green: #16cc94;
+$color-red: #fa305b;
+
+$color-white: #fff;
+$color-gray-dark: #787870;
+$color-black: #444;
+
+// COOL GRADIENT
+@mixin coolGradientPrimary {
+  background-image: linear-gradient(
+    135deg,
+    $color-blue-light 10%,
+    $color-blue-dark 100%
+  );
+}
+
+// BUTTON EFFECT
+@mixin buttonEffect {
+  transform: translateY(0);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease all;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.18);
+    transform: translateY(-0.1rem);
+  }
+
+  &:active {
+    outline: none;
+    transform: translateY(0.1rem);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

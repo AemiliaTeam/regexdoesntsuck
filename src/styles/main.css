@@ -7,31 +7,49 @@
 
 html {
   font-size: 62.5%; }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 37.5em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
 body {
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif; }
-
-.doesMatch {
-  color: green; }
-
-.doesNotMatch {
-  color: red; }
+  font-family: 'Lato', sans-serif;
+  background-image: linear-gradient(135deg, #72edf2 10%, #5151e5 100%);
+  color: #787870;
+  min-height: 100vh;
+  background-size: contain; }
+  @media (max-width: 56.25em) {
+    body {
+      background-image: none;
+      background-color: #4e97e9; } }
 
 .container {
   display: flex;
   flex-direction: column;
   padding: 6rem;
   margin: 8rem auto;
-  width: 70%;
+  width: 80rem;
   min-height: 80vh;
-  border: 2px solid #222;
+  background: #fff;
   box-shadow: 12px 12px 22px rgba(0, 0, 0, 0.2); }
+  @media (max-width: 56.25em) {
+    .container {
+      width: 90%;
+      margin: 4rem auto; } }
+  @media (max-width: 37.5em) {
+    .container {
+      width: 100%;
+      margin: 0rem auto; } }
 
 .controls-container {
   padding: 2rem 0;
-  flex: 0 1 auto;
-  margin-bottom: 2rem; }
+  flex: 0 1 auto; }
 
 .strings-container {
   padding: 2rem 0;
@@ -40,41 +58,139 @@ body {
   flex-direction: column; }
 
 .AddString {
-  display: flex; }
+  display: flex;
+  margin: 0 2rem; }
   .AddString__input {
     flex: 1 1 auto;
     padding: 0.4rem 1.2rem;
-    font-size: 2rem; }
+    font-size: 2rem;
+    margin-right: 2rem;
+    border: none;
+    border-bottom: 2px solid #bbbbf5;
+    transition: 0.3s ease all;
+    font-family: 'Lato', sans-serif;
+    color: #444; }
+    .AddString__input::placeholder {
+      color: #bbbbf5; }
+    .AddString__input:active, .AddString__input:focus {
+      outline: none;
+      border-bottom: 2px solid #5151e5; }
   .AddString__button {
     padding: 1rem;
     text-transform: uppercase;
-    font-size: 1.2rem;
-    width: 6rem; }
+    font-size: 1.4rem;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    width: 6rem;
+    border: none;
+    color: #fff;
+    background-color: #4e97e9;
+    transform: translateY(0);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease all; }
+    .AddString__button:hover {
+      cursor: pointer;
+      box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.18);
+      transform: translateY(-0.1rem); }
+    .AddString__button:active {
+      outline: none;
+      transform: translateY(0.1rem);
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24); }
+    .AddString__button:focus {
+      outline: none; }
 
 .ClearStrings {
-  padding: 1rem;
-  font-size: 1.2rem;
+  padding: 1.6rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
-  margin-bottom: 1rem; }
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  border: none;
+  background-color: #4e97e9;
+  color: #fff;
+  transform: translateY(0);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: 0.3s ease all; }
+  .ClearStrings:hover {
+    cursor: pointer;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.18);
+    transform: translateY(-0.1rem); }
+  .ClearStrings:active {
+    outline: none;
+    transform: translateY(0.1rem);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.24); }
+  .ClearStrings:focus {
+    outline: none; }
 
 .DisplayRegex {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
-  align-items: center; }
+  align-items: center;
+  padding: 2rem;
+  width: 80%;
+  margin: 0 auto;
+  position: relative; }
+  .DisplayRegex__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: baseline;
+    transition: 0.3s all;
+    position: relative; }
+    .DisplayRegex__container::after {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: 0.3s all; }
+    .DisplayRegex__container--yes {
+      border-left: 2px solid #16cc94;
+      border-top: 2px solid #16cc94;
+      border-bottom: 2px solid #16cc94; }
+      .DisplayRegex__container--yes::after {
+        background-color: #16cc94;
+        transform: scaleX(1.6) scaleY(1.4);
+        opacity: 0; }
+    .DisplayRegex__container--no {
+      border-left: 2px solid #fa305b;
+      border-top: 2px solid #fa305b;
+      border-bottom: 2px solid #fa305b; }
+      .DisplayRegex__container--no::after {
+        transform: scaleX(1) scaleY(1);
+        opacity: 0; }
   .DisplayRegex__title {
-    margin-right: 2rem;
+    margin: 1rem 2rem;
     font-size: 3rem;
-    font-family: 'Source Code Pro', monospace; }
+    font-family: 'Source Code Pro', monospace;
+    color: #444; }
   .DisplayRegex__icon {
-    font-size: 2rem; }
+    font-size: 3rem;
+    color: #fff;
+    padding: 0 2rem;
+    align-self: stretch;
+    line-height: 5.4rem;
+    transition: 0.3s all; }
+    .DisplayRegex__icon--yes {
+      background-color: #16cc94; }
+    .DisplayRegex__icon--no {
+      background-color: #fa305b; }
 
 .Flags {
   flex: 1 1 50%;
   border: none;
   display: flex;
   flex-direction: column; }
+  .Flags__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
   .Flags__legend {
     font-size: 1.4rem;
     text-transform: uppercase; }
@@ -83,24 +199,59 @@ body {
     align-items: center;
     justify-content: space-around;
     flex: 1 1 auto; }
+  .Flags__input {
+    display: none; }
+    @media (max-width: 37.5em) {
+      .Flags__input {
+        display: inline-block; } }
   .Flags__checkbox {
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    border: 3px solid #5151e5;
+    top: 0.2rem;
+    left: -2rem; }
+    @media (max-width: 37.5em) {
+      .Flags__checkbox {
+        display: none; } }
+    .Flags__checkbox::after {
+      content: '';
+      height: 1rem;
+      width: 1rem;
+      position: absolute;
+      top: 0.2rem;
+      left: 0.2rem;
+      background-color: #4e97e9;
+      opacity: 0;
+      transition: 0.2s ease opacity; }
+      @media (max-width: 37.5em) {
+        .Flags__checkbox::after {
+          display: none; } }
+  .Flags__input:checked ~ .Flags__label .Flags__checkbox::after {
+    opacity: 1; }
+    @media (max-width: 37.5em) {
+      .Flags__input:checked ~ .Flags__label .Flags__checkbox::after {
+        display: none; } }
   .Flags__label {
-    font-size: 1.4rem; }
+    color: #444;
+    font-size: 1.8rem;
+    margin-left: 1rem; }
 
 .FormContainer {
   display: flex;
   width: 100%;
-  margin-bottom: 2rem; }
+  margin-bottom: 4rem; }
 
 .Header {
   margin-bottom: 2rem;
   padding: 1rem 0; }
   .Header__text {
-    font-size: 4rem;
+    font-size: 4.8rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    text-align: center; }
+    text-align: center;
+    color: #4e97e9; }
 
 .Pattern {
   display: flex;
@@ -112,11 +263,23 @@ body {
     text-transform: uppercase; }
   .Pattern__input {
     padding: 0.4rem 1.2rem;
-    font-size: 2rem; }
+    font-size: 2rem;
+    border: none;
+    border-bottom: 2px solid #bbbbf5;
+    transition: 0.3s ease all;
+    font-family: 'Lato', sans-serif;
+    color: #444; }
+    .Pattern__input:active, .Pattern__input:focus {
+      outline: none;
+      border-bottom: 2px solid #5151e5; }
+    .Pattern__input::placeholder {
+      color: #bbbbf5; }
 
 .StringItem {
   display: flex;
-  margin-bottom: 1rem; }
+  align-items: center;
+  margin: 1.2rem 0;
+  font-family: 'Lato', sans-serif; }
   .StringItem__text {
     flex: 1 1 auto;
     padding: 0.4rem 1.2rem;
@@ -124,13 +287,26 @@ body {
   .StringItem__button {
     padding: 1rem;
     text-transform: uppercase;
-    font-size: 1.2rem;
-    width: 6rem; }
+    font-size: 1.8rem;
+    width: 6rem;
+    border: none;
+    color: #4e97e9;
+    background-color: #fff;
+    cursor: pointer; }
+
+.doesMatch {
+  color: #16cc94; }
+
+.doesNotMatch {
+  color: #fa305b; }
 
 .StringList {
-  list-style-type: none; }
+  list-style-type: none;
+  margin: 0 2rem 4rem; }
   .StringList__empty {
     font-size: 1.8rem;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 1rem; }
+    margin: 5rem 0 6rem; }
+  .StringList__item:not(:last-child) {
+    border-bottom: 2px solid #bbbbf5; }

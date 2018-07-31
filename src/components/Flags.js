@@ -8,7 +8,7 @@ const Flags = props => {
       <div className="Flags__container">
         <div className="Flags__item">
           <input
-            className="Flags__checkbox"
+            className="Flags__input"
             type="checkbox"
             id="insensitive"
             name="flags"
@@ -21,13 +21,14 @@ const Flags = props => {
             }
           />
           <label className="Flags__label" htmlFor="insensitive">
+            <span className="Flags__checkbox" />
             i
           </label>
         </div>
 
         <div className="Flags__item">
           <input
-            className="Flags__checkbox"
+            className="Flags__input"
             type="checkbox"
             id="global"
             name="flags"
@@ -40,13 +41,14 @@ const Flags = props => {
             }
           />
           <label className="Flags__label" htmlFor="global">
+            <span className="Flags__checkbox" />
             g
           </label>
         </div>
 
         <div className="Flags__item">
           <input
-            className="Flags__checkbox"
+            className="Flags__input"
             type="checkbox"
             id="multiline"
             name="flags"
@@ -59,13 +61,14 @@ const Flags = props => {
             }
           />
           <label className="Flags__label" htmlFor="multiline">
+            <span className="Flags__checkbox" />
             m
           </label>
         </div>
 
         <div className="Flags__item">
           <input
-            className="Flags__checkbox"
+            className="Flags__input"
             type="checkbox"
             id="unicode"
             name="flags"
@@ -78,13 +81,14 @@ const Flags = props => {
             }
           />
           <label className="Flags__label" htmlFor="unicode">
+            <span className="Flags__checkbox" />
             u
           </label>
         </div>
 
         <div className="Flags__item">
           <input
-            className="Flags__checkbox"
+            className="Flags__input"
             type="checkbox"
             id="sticky"
             name="flags"
@@ -97,6 +101,7 @@ const Flags = props => {
             }
           />
           <label className="Flags__label" htmlFor="sticky">
+            <span className="Flags__checkbox" />
             y
           </label>
         </div>
