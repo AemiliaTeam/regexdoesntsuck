@@ -274,6 +274,9 @@ body {
   display: flex;
   width: 100%;
   margin-bottom: 4rem; }
+  @media (max-width: 37.5em) {
+    .FormContainer {
+      flex-direction: column; } }
 
 .Header {
   margin-bottom: 2rem;
@@ -301,6 +304,9 @@ body {
     transition: 0.3s ease all;
     font-family: 'Lato', sans-serif;
     color: #444; }
+    @media (max-width: 37.5em) {
+      .Pattern__input {
+        margin-bottom: 2rem; } }
     .Pattern__input:active, .Pattern__input:focus {
       outline: none;
       border-bottom: 2px solid #5151e5; }
