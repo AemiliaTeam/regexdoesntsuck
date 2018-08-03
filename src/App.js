@@ -146,7 +146,7 @@ class App extends Component {
       this.setState({
         error: 'Each test case must contain at least one character'
       });
-    } else if (text.trim() !== '') {
+    } else if (text.trim() === '') {
       this.setState({
         error: `We don't currently support whitespace only strings`
       });
